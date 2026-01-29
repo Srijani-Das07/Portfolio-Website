@@ -61,6 +61,25 @@
             to { transform: rotate(360deg); }
         }
 
+        /* For mobile background animation */
+        @media (max-width: 768px) {
+            .bg-decoration {
+                opacity: 0.3; 
+            }
+    
+            .bg-decoration::before {
+                animation: rotate 30s linear infinite;
+                /* Force animation on mobile */
+                will-change: transform;
+                transform: translateZ(0); /* Hardware acceleration */
+            }
+    
+            body {
+                overflow-x: hidden;
+                position: relative; /* Ensure bg-decoration stays fixed */
+            }
+        }
+
         /* Navigation */
         nav {
             position: fixed;
@@ -208,30 +227,54 @@
             animation: fadeInUp 0.8s ease-out 0.6s both;
         }
 
-        /* Profile Circle */
-        .profile-circle {
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 80px;
-            border: 4px solid var(--accent-light);
-            box-shadow: 0 10px 40px rgba(41, 98, 255, 0.2);
-            animation: fadeInScale 0.8s ease-out 0.3s both;
-            position: relative;
-            overflow: hidden;
+        /* Updated Hero Styles */
+        .hero-container-new {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .profile-circle::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
+        .hero-content-full {
+            width: 100%;
+        }
+
+        .intro-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 40px 0;
+        }
+
+        .intro-text {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .intro-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .left-column {
+            border-right: 1px solid #1e3a8a; /* navy */
+            padding-right: 20px;
+        }
+
+        .right-column {
+            padding-left: 20px;
+        }
+
+        /* Responsive updates */
+        @media (max-width: 768px) {
+            .intro-columns {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            
+            .hero-container-new {
+                text-align: center;
+            }
         }
 
         @keyframes fadeInScale {
@@ -804,21 +847,39 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
+        <div class="hero-container-new">
+            <div class="hero-content-full">
                 <div class="hero-label">Computer Science Student</div>
                 <h1 class="hero-title">Srijani Das</h1>
-                <p class="hero-tagline">Building intelligent systems through code and research.</p>
-                <p class="hero-subtitle">
-                    Computer Science student at VIT Chennai interested in machine learning and software development. I enjoy building projects to learn new technologies.
-                </p>
+                <p class="hero-tagline">Exploring ideas through experimentation and code</p>
+                
+                <!-- Two Column Intro -->
+                <div class="intro-columns">
+                    <div class="intro-col">
+                        <p class="intro-text">
+                            Hello, welcome to my portfolio. I'm Srijani, a B.Tech Computer Science student from VIT Chennai, interested in machine learning and software development.
+                        </p>
+                        <p class="intro-text">
+                            But let me tell you how I actually got here.
+                        </p>
+                        <p class="intro-text">
+                            I got into machine learning through a research project with a professor. I had no idea what she was talking about at first, but I was curious enough to dive in. Once I started running models and seeing results, I was hooked.
+                        </p>
+                    </div>
+                    <div class="intro-col">
+                        <p class="intro-text">
+                            I've been exploring machine learning, software development, and data analytics through various projects. I like working on different types of problems - it keeps things interesting and helps me figure out what I'm good at.
+                        </p>
+                        <p class="intro-text">
+                            What I enjoy most is the experimental, iterative process of building. I start with an idea, test it, see what breaks, and adapt based on what I learn. I'm flexible about the implementation as long as the end result works and solves the problem.
+                        </p>
+                    </div>
+                </div>
+                
                 <div class="hero-cta">
                     <a href="#projects" class="btn btn-primary">View Projects</a>
                     <a href="assets/Srijani_Das_Resume.pdf" target="_blank" class="btn btn-secondary">View Resume</a>
                 </div>
-            </div>
-            <div class="profile-circle">
-                <img src="assets/Photo.png" alt="Srijani Das" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
             </div>
         </div>
     </section>

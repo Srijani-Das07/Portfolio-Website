@@ -169,18 +169,6 @@
             margin: 0 auto;
         }
 
-        .hero-container {
-            display: grid;
-            grid-template-columns: 1fr 280px;
-            gap: 60px;
-            align-items: center;
-            width: 100%;
-        }
-
-        .hero-content {
-            max-width: 700px;
-        }
-
         .hero-label {
             font-family: 'IBM Plex Mono', monospace;
             font-size: 13px;
@@ -211,7 +199,7 @@
             line-height: 1.5;
             animation: fadeInUp 0.8s ease-out 0.4s both;
         }
-
+        
         .hero-subtitle {
             font-size: 18px;
             color: var(--text-secondary);
@@ -238,60 +226,11 @@
             width: 100%;
         }
 
-        .intro-columns {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin: 40px 0;
-        }
-
-        .intro-text {
-            font-size: 16px;
-            color: var(--text-secondary);
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
         .intro-text:last-child {
             margin-bottom: 0;
         }
 
-        .left-column {
-            border-right: 1px solid #1e3a8a; /* navy */
-            padding-right: 20px;
-        }
-
-        .right-column {
-            padding-left: 20px;
-        }
-
         /* Responsive updates */
-        @media (max-width: 768px) {
-            .intro-columns {
-                grid-template-columns: 1fr;
-                gap: 0;
-            }
-            
-            .hero-container-new {
-                text-align: center;
-            }
-        }
-
-        @keyframes fadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @keyframes shine {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(0deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
 
         .btn {
             padding: 14px 32px;
@@ -628,16 +567,6 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .hero-container {
-                grid-template-columns: 1fr 220px;
-                gap: 40px;
-            }
-
-            .profile-circle {
-                width: 220px;
-                height: 220px;
-                font-size: 65px;
-            }
 
             .hero-title {
                 font-size: 56px;
@@ -698,20 +627,12 @@
             }
 
             .hero-container {
-                grid-template-columns: 1fr;
                 gap: 40px;
                 text-align: center;
             }
 
             .hero-content {
                 max-width: 100%;
-            }
-
-            .profile-circle {
-                width: 200px;
-                height: 200px;
-                font-size: 60px;
-                margin: 0 auto;
             }
 
             .hero-title {
@@ -787,12 +708,6 @@
                 font-size: 18px;
             }
 
-            .profile-circle {
-                width: 160px;
-                height: 160px;
-                font-size: 50px;
-            }
-
             .section-title {
                 font-size: 28px;
             }
@@ -853,28 +768,9 @@
                 <h1 class="hero-title">Srijani Das</h1>
                 <p class="hero-tagline">Exploring ideas through experimentation and code</p>
                 
-                <!-- Two Column Intro -->
-                <div class="intro-columns">
-                    <div class="intro-col">
-                        <p class="intro-text">
-                            Hello, welcome to my portfolio. I'm Srijani, a B.Tech Computer Science student from VIT Chennai, interested in machine learning and software development.
-                        </p>
-                        <p class="intro-text">
-                            But let me tell you how I actually got here.
-                        </p>
-                        <p class="intro-text">
-                            I got into machine learning through a research project with a professor. I had no idea what she was talking about at first, but I was curious enough to dive in. Once I started running models and seeing results, I was hooked.
-                        </p>
-                    </div>
-                    <div class="intro-col">
-                        <p class="intro-text">
-                            I've been exploring machine learning, software development, and data analytics through various projects. I like working on different types of problems - it keeps things interesting and helps me figure out what I'm good at.
-                        </p>
-                        <p class="intro-text">
-                            What I enjoy most is the experimental, iterative process of building. I start with an idea, test it, see what breaks, and adapt based on what I learn. I'm flexible about the implementation as long as the end result works and solves the problem.
-                        </p>
-                    </div>
-                </div>
+                <p class="hero-subtitle">
+                    B.Tech Computer Science student at VIT Chennai (2024 - 2028). Building ML-based applications, automation tools, and data-driven projects using Python.
+                </p>
                 
                 <div class="hero-cta">
                     <a href="#projects" class="btn btn-primary">View Projects</a>

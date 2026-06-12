@@ -16,13 +16,14 @@
         }
 
         :root {
-            --primary: #0d0d0d;
-            --accent: #2962ff;
-            --accent-light: #5e92ff;
-            --bg: #ffffff;
-            --bg-light: #c7f0fdde;
-            --border: #e8e8e8;
-            --text-secondary: #666;
+            --primary: #2e3530;
+            --accent: #6f9c6a;
+            --accent-light: #8fb98a;
+            --bg: #faf8f3;
+            --bg-light: #e7efe4;
+            --border: #ddd9cf;
+            --text-secondary: #5c6058;
+            --accent-text: #1f3320;
         }
 
         body {
@@ -47,18 +48,35 @@
         .bg-decoration::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 20%, rgba(37, 57, 110, 0.895) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(41, 98, 255, 0.05) 0%, transparent 50%);
-            animation: rotate 30s linear infinite;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle 260px at 88% 8%, #b9d2b3 0%, transparent 70%),
+                radial-gradient(circle 300px at -5% 100%, #a8c7a2 0%, transparent 70%),
+                radial-gradient(circle 200px at 60% 50%, #c8e0c3 0%, transparent 70%),
+                radial-gradient(circle 160px at 12% 0%, #d9ead6 0%, transparent 70%),
+                radial-gradient(circle 240px at 40% 95%, #8fae8b 0%, transparent 70%);
         }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        .bg-decoration::after {
+            content: '';
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            width: 120%;
+            height: 220%;
+            opacity: 0.9;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'%3E%3Cpath d='M0,80 Q250,115 500,80 Q750,45 1000,80' stroke='%237fae79' stroke-width='2' fill='none'/%3E%3Cpath d='M0,260 Q250,230 500,260 Q750,290 1000,260' stroke='%23a3c4a0' stroke-width='2' fill='none'/%3E%3Cpath d='M0,440 Q250,465 500,440 Q750,415 1000,440' stroke='%236f9c6a' stroke-width='1.5' fill='none' opacity='0.8'/%3E%3Cpath d='M0,640 Q250,605 500,640 Q750,675 1000,640' stroke='%238fbf8a' stroke-width='2' fill='none'/%3E%3Cpath d='M0,840 Q250,868 500,840 Q750,812 1000,840' stroke='%234a7a45' stroke-width='1.5' fill='none' opacity='0.7'/%3E%3Ccircle cx='120' cy='110' r='4' fill='%237fae79'/%3E%3Ccircle cx='820' cy='40' r='3' fill='%238fbf8a'/%3E%3Ccircle cx='430' cy='250' r='3' fill='%23a3c4a0'/%3E%3Ccircle cx='900' cy='320' r='5' fill='%236f9c6a'/%3E%3Ccircle cx='260' cy='430' r='3' fill='%23b6d4b3'/%3E%3Ccircle cx='600' cy='480' r='4' fill='%237fae79'/%3E%3Ccircle cx='180' cy='620' r='4' fill='%234a7a45'/%3E%3Ccircle cx='720' cy='700' r='3' fill='%23a3c4a0'/%3E%3Ccircle cx='950' cy='800' r='5' fill='%236f9c6a'/%3E%3Ccircle cx='340' cy='870' r='3' fill='%237fae79'/%3E%3C/svg%3E");
+            background-size: 1000px 1000px;
+            background-repeat: repeat;
+            animation: leafDrift 90s linear infinite;
+        }
+
+        @keyframes leafDrift {
+            from { transform: translate(0, 0); }
+            to { transform: translate(-60px, -90px); }
         }
 
         /* For mobile background animation */
@@ -67,12 +85,6 @@
                 opacity: 0.3; 
             }
     
-            .bg-decoration::before {
-                animation: rotate 30s linear infinite;
-                /* Force animation on mobile */
-                will-change: transform;
-                transform: translateZ(0); /* Hardware acceleration */
-            }
     
             body {
                 overflow-x: hidden;
@@ -193,7 +205,7 @@
 
         .hero-tagline {
             font-size: 26px;
-            color: #1a237e;
+            color: #2f5a2c;
             margin-bottom: 40px;
             font-weight: 700;
             line-height: 1.5;
@@ -245,7 +257,7 @@
 
         .btn-primary {
             background: var(--accent);
-            color: white;
+            color: var(--accent-text);
             border: 2px solid var(--accent);
         }
 
@@ -253,18 +265,19 @@
             background: var(--accent-light);
             border-color: var(--accent-light);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(110, 218, 248, 0.3);
+            box-shadow: 0 4px 12px rgba(163, 196, 160, 0.35);
         }
 
         .btn-secondary {
             background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
+            color: var(--text-secondary);
+            border: 2px solid #e0d8d2;
         }
 
         .btn-secondary:hover {
             background: var(--primary);
-            color: white;
+            border-color: var(--primary);
+            color: #fdfbf6;
             transform: translateY(-2px);
         }
 
@@ -306,11 +319,11 @@
         /* Projects Grid */
         .projects-grid {
             display: grid;
-            gap: 40px;
+            gap: 56px;
         }
 
         .project-card {
-            background: white;
+            background: #fffefb;
             border: 1px solid var(--border);
             border-radius: 8px;
             padding: 40px;
@@ -326,7 +339,7 @@
             left: 0;
             width: 4px;
             height: 100%;
-            background: var(--accent);
+            background: #4a7a45;
             transform: scaleY(0);
             transition: transform 0.3s;
         }
@@ -414,7 +427,7 @@
         }
 
         .skill-category {
-            background: white;
+            background: #fffefb;
             border: 1px solid var(--border);
             border-radius: 8px;
             padding: 30px;
@@ -458,7 +471,7 @@
 
         /* Education */
         .education-card {
-            background: white;
+            background: #fffefb;
             border: 1px solid var(--border);
             border-radius: 8px;
             padding: 40px;
